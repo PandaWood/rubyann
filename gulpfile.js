@@ -12,3 +12,4 @@ gulp.task('release', ()=> {
 		.pipe(uglify())
 		.pipe(gulp.dest('dist'))
 })
+

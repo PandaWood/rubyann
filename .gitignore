@@ -1,6 +1,6 @@
 *.log
 node_modules
 .idea
-./dist/*.js
-./dist/tests
-./dist/!rubyann.js
+dist/*.js
+dist/tests
+dist/!rubyann.js

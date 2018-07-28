@@ -1,0 +1,27 @@
+{
+	"defaultSeverity": "warn",
+	"jsRules": {},
+	"rules": {
+		"no-for-in-array": true,
+		"no-duplicate-super": true,
+		"no-construct": true,
+		"no-inferrable-types": true,
+		"member-access": [true, "check-accessor"],
+		"adjacent-overload-signatures": true,
+		"ban-comma-operator": true,
+		"triple-equals": [true,	"allow-null-check"],
+		"max-line-length": [true,	140	],
+		"one-variable-per-declaration": [	true,	"ignore-for-loop"	],
+		"semicolon": [true,	"never"	],
+		"no-duplicate-switch-case": true,
+		"no-invalid-template-strings": true,
+		"use-isnan": true,
+		"ban-types": [true,
+			["Object", "Use object or {} instead."],
+			["Boolean", "Avoid using the `Boolean` type. Did you mean `boolean`?"],
+			["Number", "Avoid using the `Number` type. Did you mean `number`?"],
+			["String", "Avoid using the `String` type. Did you mean `string`?"]
+		]
+	},
+	"rulesDirectory": []
+}

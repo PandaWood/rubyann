@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "mplus";
+	src: url(http://mplus-fonts.sourceforge.jp/webfonts/mplus-2m-regular.ttf) format("truetype");
+}
+
+#qunit-testrunner-toolbar, #qunit-filteredTest, #qunit-userAgent, #qunit-testresult, #qunit-tests li { font-size: medium; }
+#qunit-tests { font-size: large; }
+
+body {
+	font-family:Meiryo,MS Gothic,mplus;
+	font-size:14px;
+}
+
+ruby {
+  display:inline-table;
+  text-align:center;
+  white-space:nowrap;
+  text-indent:0;
+	ruby-align: top;
+
+	border: none;
+	vertical-align: bottom; /* makes a diff */
+}
+ruby > rb {
+	display:table-row;
+	vertical-align:text-top;
+}
+ruby > rt, rbc + rtc {
+	display:table-header-group;
+}
+rbc > rb, rtc > rt {
+	display:table-cell;
+}
+rt {
+	font-size:0.6em;
+  line-height:1.2em;
+}
+rp {
+	display:none;
+}

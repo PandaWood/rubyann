@@ -1,0 +1,46 @@
+{
+  "name": "rubyann",
+  "version": "2.0.0",
+  "description": "rubyann is a javascript library that uses a simple custom-syntax to create ruby annotations (eg furigana)",
+  "main": "dist/rubyann.js",
+  "types": "ts/rubyann.d.ts",
+  "scripts": {
+    "test": "mocha --reporter spec --require ts-node/register 'src/tests/*.ts'",
+    "release": "gulp release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PandaWood/rubyann.git"
+  },
+  "keywords": [
+    "ruby",
+    "annotations",
+    "furigana",
+    "kanji"
+  ],
+  "author": {
+    "name": "Peter van der Woude",
+    "email": "pandawoude@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PandaWood/rubyann/issues"
+  },
+  "homepage": "https://github.com/PandaWood/rubyann#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.5",
+    "@types/qunit": "^2.5.1",
+    "chai": "^4.1.2",
+    "gulp": "^3.9.1",
+    "gulp-qunit": "^1.5.0",
+    "gulp-typescript": "^5.0.0-alpha.3",
+    "gulp-uglify": "^2.0.0",
+    "mocha": "^5.2.0",
+    "qunitjs": "^2.4.1",
+    "ts-node": "^7.0.0",
+    "tslint": "^5.11.0",
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {}
+}

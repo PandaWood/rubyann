@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "rubyann is a javascript library that uses a simple custom-syntax to create ruby annotations (eg furigana)",
   "main": "dist/rubyann.js",
-  "types": "ts/rubyann.d.ts",
+  "types": "src/rubyann.d.ts",
   "scripts": {
     "test": "mocha --reporter spec --require ts-node/register 'src/tests/*.ts'",
     "release": "gulp release"

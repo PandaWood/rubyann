@@ -1,12 +1,12 @@
 // rubyann build
 
-var gulp = require('gulp')
-var uglify = require('gulp-uglify')
-var ts = require('gulp-typescript')
-var tsProject = ts.createProject('tsconfig.json');
+const gulp = require('gulp')
+const uglify = require('gulp-uglify')
+const ts = require('gulp-typescript')
+const tsProject = ts.createProject('tsconfig.json');
 
 // transpile ts src
-gulp.task('release', function() {
+gulp.task('release', ()=> {
 	gulp.src('src/*.ts')
 		.pipe(tsProject())
 		.pipe(uglify())

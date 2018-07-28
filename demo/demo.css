@@ -1,0 +1,46 @@
+body {
+	font-family: "Meiryo", "serif";
+	font-size: 14px;
+}
+.furigana-text {
+	font-size: 36px;
+	margin-top: 10px
+}
+#convert-button {
+	font-size: 20px;
+	margin-top: 20px
+}
+#convert-message {
+	margin-top: 10px;
+	margin-left: 5px
+}
+.screenshot {
+	margin-top: 30px
+}
+
+/** ruby styles */
+ruby {
+  display:inline-table;
+  text-align:center;
+  white-space:nowrap;
+  text-indent:0;
+	border: none;
+	vertical-align: bottom; /* makes a diff */
+}
+ruby > rb {
+	display:table-row;
+	vertical-align:text-top;
+}
+ruby > rt, rbc + rtc {
+	display:table-header-group;
+}
+rtc > rt {
+	display:table-cell;
+}
+rt {
+	font-size:0.6em;
+  line-height:1.2em;
+}
+rp {
+	display:none;
+}

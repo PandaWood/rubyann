@@ -6,24 +6,34 @@ chai.should()
 describe('RubyAnn annotates to ruby XML', ()=> {
 	
 	const BirdXml = 'bird=<ruby><rb>鳥</rb><rp>(</rp><rt>とり</rt><rp>)</rp></ruby>'
-	const rubyAnn = new RubyAnn()
+	const rubyAnn = new RubyAnn()		// any tests that use default delimiters can just reuse this
 	
 	it('can annotate 1 kanji', ()=> {
 		rubyAnn.text('bird={鳥,とり}')
 			.should.eq(BirdXml)
 	})
-	it('can annotate multiple sequences', ()=> {
+	it('can annotate multiple sequences - 2 repeated', ()=> {
 		rubyAnn.text('bird={鳥,とり}' + 'bird={鳥,とり}')
 			.should.eq(BirdXml + BirdXml)
 	})
+	it('can annotate multiple sequences - 4 different', ()=> {
+		const OneStoneTwoBirdsXml =
+			'<ruby><rb>一</rb><rp>(</rp><rt>one</rt><rp>)</rp></ruby>' +
+			'<ruby><rb>石</rb><rp>(</rp><rt>stone</rt><rp>)</rp></ruby>' +
+			'<ruby><rb>二</rb><rp>(</rp><rt>two</rt><rp>)</rp></ruby>' +
+			'<ruby><rb>鳥</rb><rp>(</rp><rt>birds</rt><rp>)</rp></ruby>'
+		
+		let xml = rubyAnn.text('{一,one}{石,stone}{二,two}{鳥,birds}')
+		xml.should.eq(OneStoneTwoBirdsXml)
+	})
 	it('can annotate with non-default delimiters', ()=> {
-		let rubyAnn = new RubyAnn({ delimiters: '[]' })
-		rubyAnn.text('bird=[鳥,とり]')
+		let ra = new RubyAnn({ delimiters: '[]' })
+		ra.text('bird=[鳥,とり]')
 			.should.eq(BirdXml)
 	})
 	it('can annotate with 2 same delimiters (not open/close type)', ()=> {
-		let rubyAnn = new RubyAnn({ delimiters: '||' })
-		rubyAnn.text('bird=|鳥,とり|')
+		let ra = new RubyAnn({ delimiters: '||' })
+		ra.text('bird=|鳥,とり|')
 			.should.eq(BirdXml)
 	})
 	it('throws if delimiters are invalid - 1 character', ()=> {

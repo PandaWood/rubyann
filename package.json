@@ -30,14 +30,11 @@
   "devDependencies": {
     "@types/chai": "^4.1.4",
     "@types/mocha": "^5.2.5",
-    "@types/qunit": "^2.5.1",
     "chai": "^4.1.2",
     "gulp": "^3.9.1",
-    "gulp-qunit": "^1.5.0",
     "gulp-typescript": "^5.0.0-alpha.3",
     "gulp-uglify": "^2.0.0",
     "mocha": "^5.2.0",
-    "qunitjs": "^2.4.1",
     "ts-node": "^7.0.0",
     "tslint": "^5.11.0",
     "typescript": "^2.9.2"

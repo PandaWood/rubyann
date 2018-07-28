@@ -27,16 +27,21 @@ RubyAnn will parse this and replace the HTML with something that looks like this
 ![RubyAnn result](demo/nihongo-furigana-example.png)
 
 This is done by using RubyAnn in javascript like this:
-
 ```
   let annotate = new RubyAnn()
   annotate.html('.furigana-text')
 ```
 
 You can also pass in your own delimiters (instead of curly braces)
-incase there's a conflict eg `new RubyAnn('[]')`
+incase there's a conflict eg `new RubyAnn('[]')` - you just have to
+pass 2 characters as a string, for start/end.
 
-You just have to pass 2 characters within a string, for start/end.
+Another use, is to just get the raw XML - without affecting the DOM -
+and use it however you need
+```
+  let annotate = new RubyAnn()
+  annotate.text('{鳥,とり}')   // returns '<ruby><rb>鳥</rb><rp>(</rp><rt>とり</rt><rp>)</rp></ruby>'
+```
 
 ## Build
 #### Requirements

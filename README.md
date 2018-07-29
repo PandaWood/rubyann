@@ -3,45 +3,53 @@ RubyAnn
 *(see also the original jQuery version
  [jquery.rubyann](https://github.com/PandaWood/jquery.rubyann))*
 
-**rubyann** is a small library to allow you to write
+**rubyann** is a small library for writing
 [ruby annotations](https://en.wikipedia.org/wiki/Ruby_character)
-using a simplified syntax. Basically, to avoid having to write the fairly
-tedious XML required for ruby annotations - which is often used for
+using a simplified syntax. Basically, to avoid writing the
+tedious XML required. This is most often used for Japanese
 [furigana](https://en.wikipedia.org/wiki/Furigana).
 
-For most users, this will simply mean - **a convenient way of being able to
-output furigana into the Japanese text of their web page.**
+For most users, this will simply mean - **a convenient way of adding
+Furigana to their Kanji in a web page.**
 
 #### Example
 
-It works by using this syntax - in this case, to show what kanji goes with what hiragana:
+It works by using the custom syntax below:
 
 ```
 {日,に}{本,ほん}{語,ご}
 ```
 
-Note the use of braces to match up the Kanji with the Hiragana character.
+ie `{kanji,furigana} any text here`
 
-RubyAnn will parse this and replace the HTML with something that looks like this:
+rubyann will parse this and can replace the HTML with ruby annotations
+that looks like this:
 
 ![RubyAnn result](demo/nihongo-furigana-example.png)
 
-This is done by using RubyAnn in javascript like this:
+This is done by using rubyann in javascript like this:
 ```
-  let annotate = new RubyAnn()
-  annotate.elements('.furigana-text')
+  let ann = new RubyAnn()
+  ann.elements('.furigana-text')
 ```
 
-You can also pass in your own delimiters (instead of curly braces)
-incase there's a conflict eg `new RubyAnn('[]')` - you just have to
-pass 2 characters as a string, for start/end.
+You can also pass in your own delimiters (instead of curly braces) -
+incase there's a conflict
 
-Another use, is to just get the raw XML - without affecting the DOM -
-and use it however you need
+eg `new RubyAnn('[]')` - the function/constructor takes 2 characters
+in a string for start/end.
+
+Another use of the library is to just get the raw XML/XHTML, without
+affecting the DOM, to use however you need.
 ```
-  let annotate = new RubyAnn()
-  annotate.getXml('{鳥,とり}')   // returns '<ruby><rb>鳥</rb><rp>(</rp><rt>とり</rt><rp>)</rp></ruby>'
+  let ann = new RubyAnn()
+  ann.getXml('{鳥,とり}')   // returns '<ruby><rb>鳥</rb><rp>(</rp><rt>とり</rt><rp>)</rp></ruby>'
 ```
+
+## Source Code
+RubyAnn is written in [TypeScript](https://www.typescriptlang.org/) and
+has a [Mocha](https://mochajs.org/) test suite and a [Demo Page](demo/demo.html) that can be
+run locally.
 
 ## Build
 #### Requirements
@@ -50,9 +58,10 @@ If you want to clone and build RubyAnn yourself you'll need:
 
 [NodeJS](http://www.nodejs.org)
 
-#### Run
+#### Tasks
 `npm install` or `yarn` - installs the (NPM) dependencies ([yarn](https://yarnpkg.com/) is highly recommended)
 
-`npm run release` transpiles all source and minifies the main plugin source to 'dist' directory
+`npm run release` or `yarn release` - transpiles the TypeScript source
+and minifies the javascript to 'dist' directory
 
-`npm run test` transpiles and runs the test suite
+`npm run test` or `yarn test` - transpiles and runs the test suite

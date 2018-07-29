@@ -3,6 +3,12 @@ RubyAnn
 *(see also the original jQuery version
  [jquery.rubyann](https://github.com/PandaWood/jquery.rubyann))*
 
+ I've written this non-jquery version to basically become the
+ main library for rubyann... it has no dependencies; is more flexible
+ and is written in TypeScript.
+
+ [![NPM](https://nodei.co/npm/rubyann.png)](https://nodei.co/npm/rubyann/)
+
 **rubyann** is a small library for writing
 [ruby annotations](https://en.wikipedia.org/wiki/Ruby_character)
 using a simplified syntax. Basically, to avoid writing the

@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		document.getElementById('explanation').innerText = 'This is the result'
 		document.getElementById('convert-message').innerText = ''
 
-		// now use RubyAnn
+		// now use RubyAnn to update the DOM
 		var annotate = new RubyAnn()
-		annotate.html('.furigana-text')
+		annotate.elements('.furigana-text')
 	})
 })

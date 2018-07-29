@@ -1,4 +1,4 @@
-import {RubyAnnOptions} from './index'
+import { RubyAnnOptions } from './index'
 
 /**
  * converts custom syntax eg {自,じ}{由,ゆう} to ruby xml/xhtml annotation
@@ -23,14 +23,14 @@ export class RubyAnn {
 	}
 
 	/**
-	 * Take the rubyann syntax from each element in the selector and annotate with ruby XML
-	 * @param {string} selector
+	 * update all DOM elements that contain our custom syntax, based on the selector
+	 * @param {string} selector - elements to search for custom syntax
 	 */
-	public html(selector: string) : void {
+	public elements(selector: string) : void {
 		let elements = document.querySelectorAll(selector)
 		for (let x = 0; x < elements.length; x++) {
 			let el = elements[x] as HTMLElement
-			let ann = this.text(el.innerHTML)
+			let ann = this.getXml(el.innerHTML)
 			if (ann !== el.innerHTML) {
 				el.innerHTML = ann
 			}
@@ -41,7 +41,7 @@ export class RubyAnn {
 	 * @param text to be annotated with ruby XML
 	 * @returns annotated string in ruby XML
 	 */
-	public text(text: string) : string {
+	public getXml(text: string) : string {
 		let regex = RegExp(`${this.startChar}((\\S+?),(\\S+?))${this.endChar}`, 'g')
 		return text.replace(regex, this.RubyTemplate)
 	}

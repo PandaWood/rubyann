@@ -29,7 +29,7 @@ RubyAnn will parse this and replace the HTML with something that looks like this
 This is done by using RubyAnn in javascript like this:
 ```
   let annotate = new RubyAnn()
-  annotate.html('.furigana-text')
+  annotate.elements('.furigana-text')
 ```
 
 You can also pass in your own delimiters (instead of curly braces)
@@ -40,7 +40,7 @@ Another use, is to just get the raw XML - without affecting the DOM -
 and use it however you need
 ```
   let annotate = new RubyAnn()
-  annotate.text('{鳥,とり}')   // returns '<ruby><rb>鳥</rb><rp>(</rp><rt>とり</rt><rp>)</rp></ruby>'
+  annotate.getXml('{鳥,とり}')   // returns '<ruby><rb>鳥</rb><rp>(</rp><rt>とり</rt><rp>)</rp></ruby>'
 ```
 
 ## Build

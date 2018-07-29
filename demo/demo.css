@@ -15,8 +15,12 @@ body {
 	margin-left: 5px
 }
 .screenshot {
-	margin-top: 30px
+	margin-top: 40px;
 }
+.screenshot img {
+	border: 2px solid cadetblue;
+}
+
 
 /** ruby styles */
 ruby {
@@ -31,7 +35,7 @@ ruby > rb {
 	display:table-row;
 	vertical-align:text-top;
 }
-ruby > rt, rbc + rtc {
+ruby > rt {
 	display:table-header-group;
 }
 rtc > rt {

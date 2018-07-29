@@ -1,18 +1,28 @@
-import { RubyAnnOptions } from './index'
+export interface RubyAnnOptions {
+	/**
+	 * The closing and opening delimiter characters as a single string eg "[]" or "@@" - default is "{}"
+	 * These delimiters are used around each word in our custom ruby syntax
+	 * eg {日,に}{本,ほん}{語,ご}"
+	 */
+	delimiters: string
+}
 
 /**
  * converts custom syntax eg {自,じ}{由,ゆう} to ruby xml/xhtml annotation
  */
 export class RubyAnn {
-	private readonly RubyTemplate = '<ruby><rb>$2</rb><rp>(</rp><rt>$3</rt><rp>)</rp></ruby>'
+	private static readonly RubyTemplate = '<ruby><rb>$2</rb><rp>(</rp><rt>$3</rt><rp>)</rp></ruby>'
 	private readonly startChar: string
 	private readonly endChar: string
 	private readonly options: RubyAnnOptions = {
 		delimiters: '{}'		// default to curly braces
 	}
-
+	
+	/**
+	 * @param options
+	 */
 	constructor(options?: RubyAnnOptions) {
-		this.options = options || this.options		// allow for the default options to be accepted if not passed in
+		this.options = options || this.options		// allow default options to stick if not passed in
 
 		if (this.options.delimiters == null || this.options.delimiters.length !== 2) {
 			throw new Error(`invalid delimiters: '${this.options.delimiters}'`)
@@ -43,6 +53,6 @@ export class RubyAnn {
 	 */
 	public getXml(text: string) : string {
 		let regex = RegExp(`${this.startChar}((\\S+?),(\\S+?))${this.endChar}`, 'g')
-		return text.replace(regex, this.RubyTemplate)
+		return text.replace(regex, RubyAnn.RubyTemplate)
 	}
 }

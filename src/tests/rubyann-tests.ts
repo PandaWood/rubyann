@@ -42,4 +42,7 @@ describe('RubyAnn annotates to ruby XML', ()=> {
 	it('throws if delimiters are invalid - 3 characters', ()=> {
 		chai.expect(()=> new RubyAnn({ delimiters: '|||' })).to.throw(`invalid delimiters: '|||'`)
 	})
+	it('throws if delimiters are invalid - empty', ()=> {
+		chai.expect(()=> new RubyAnn({ delimiters: '' })).to.throw(`invalid delimiters: ''`)
+	})
 })

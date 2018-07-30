@@ -5,7 +5,7 @@ var pump = require('pump')
 var uglify = require('gulp-uglify')
 var ts = require('gulp-typescript')
 var tsProject = ts.createProject('tsconfig.json', {
-	declaration: false
+	declaration: false		// todo I want this true, but it causes errors with uglify/minification
 })
 
 // transpile ts src
@@ -13,7 +13,7 @@ var tsProject = ts.createProject('tsconfig.json', {
 // but omit it from the minification (probably using the dts and js streams)
 gulp.task('release', function(cb) {
 	pump([
-		gulp.src('src/rubyann.ts'),
+		gulp.src('src/*.ts'),
 			tsProject(),
 			uglify(),
 			gulp.dest('dist')

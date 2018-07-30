@@ -1,7 +1,7 @@
 {
   "name": "rubyann",
-  "version": "3.0.2",
-  "description": "rubyann is a javascript library that uses a simple custom-syntax to create ruby annotations (eg furigana)",
+  "version": "3.0.3",
+  "description": "rubyann is a javascript library that converts a custom syntax to ruby annotations eg furigana (returns XHTML text or writes directly into the HTML)",
   "main": "dist/rubyann.js",
   "types": "dist/rubyann.d.ts",
   "scripts": {
@@ -16,6 +16,7 @@
     "ruby",
     "annotations",
     "furigana",
+		"hiragana",
     "kanji"
   ],
   "author": {

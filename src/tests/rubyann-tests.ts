@@ -26,12 +26,16 @@ describe('RubyAnn annotates to ruby XML', ()=> {
 		let xml = rubyAnn.getXml('{一,one}{石,stone}{二,two}{鳥,birds}')
 		xml.should.eq(OneStoneTwoBirdsXml)
 	})
+	it('can annotate nothing - no rubyann syntax', ()=> {
+		rubyAnn.getXml('I love spam')
+			.should.eq('I love spam')
+	})
 	it('can annotate with non-default delimiters', ()=> {
 		let ra = new RubyAnn({ delimiters: '[]' })
 		ra.getXml('bird=[鳥,とり]')
 			.should.eq(BirdXml)
 	})
-	it('can annotate with 2 same delimiters (not open/close type)', ()=> {
+	it('can annotate with 2 same delimiters', ()=> {
 		let ra = new RubyAnn({ delimiters: '||' })
 		ra.getXml('bird=|鳥,とり|')
 			.should.eq(BirdXml)

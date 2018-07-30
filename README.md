@@ -39,23 +39,21 @@ This is done by using rubyann in javascript like this:
   ann.elements('.furigana-text')
 ```
 
-You can also pass in your own delimiters (instead of curly braces) -
-incase there's a conflict
+It's also possible to pass your own delimiters - incase there's a conflict.
+eg `new RubyAnn('[]')` - the function/constructor takes a string of 2
+characters (start/end).
 
-eg `new RubyAnn('[]')` - the function/constructor takes 2 characters
-in a string for start/end.
-
-Another use of the library is to just get the raw XML/XHTML, without
-affecting the DOM, to use however you need.
+Another use of the library is to get the raw XML/XHTML, without
+writing to the DOM, to use however you need.
 ```
   let ann = new RubyAnn()
   ann.getXml('{鳥,とり}')   // returns '<ruby><rb>鳥</rb><rp>(</rp><rt>とり</rt><rp>)</rp></ruby>'
 ```
 
 ## Source Code
-RubyAnn is written in [TypeScript](https://www.typescriptlang.org/) and
-has a [Mocha](https://mochajs.org/) test suite and a [Demo Page](demo/demo.html) that can be
-run locally.
+rubyann is written in [TypeScript](https://www.typescriptlang.org/);
+has a [Mocha](https://mochajs.org/) test suite and a
+[Demo HTML Page](demo/demo.html) that can be run locally.
 
 ## Build
 #### Requirements
